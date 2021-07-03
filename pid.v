@@ -20,7 +20,7 @@ wire cout4;
 wire [15:0] multiply1,multiply2,multiply3;
 wire [15:0] tadd2,tadd3; 
 complement comp1(previous_input,complement1);
-adder_16bit add1(16'b0000000010100101,complement1,1'b0,current_error,cout1);  //setPoint = 165
+adder_16bit add1(16'b0000000011001000,complement1,1'b0,current_error,cout1);  
 multiplier r(current_error,16'b0000000000000011,multiply1); //kp+kd
 multiplier s(previous_error,16'b1111111111111110,multiply2);  //kd
 multiplier t(e_prev_2,16'b0000000000000010,multiply3);  //ki
