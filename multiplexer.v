@@ -3,8 +3,12 @@ module multiplexer(in,s0,out);
 
 output [15:0]out;
 input [15:0]in;
-input s0;
 reg c=1'b0;
+input s0;
+
+      
+
+
 
 MUX2X1 mux1(out[0],in[0],c,s0);
 MUX2X1 mux2(out[1],in[1],c,s0);
