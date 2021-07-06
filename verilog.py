@@ -32,10 +32,10 @@ for i in range(1,n):
               x.write("};\n")
           else:
               x.write(",")
-x.write("adder_16bit A0(p0,p1,1'b0,sum1,c1);\nbuf(M[1],sum1[0]);\n")
+x.write("adder_16bit add0(p0,p1,1'b0,sum1,c1);\nbuf(M[1],sum1[0]);\n")
 
-for i in range(1,n-1):
-       x.write("adder_16bit add"+str(i)+"({c"+str(i)+",sum"+str(i)+"[15:1]},p"+str(i+1)+",1'b0,sum"+str(i+1)+",c"+str(i+1)+");\n"+"buf(M["+str(i)+"],sum"+str(i)+"[0]);\n")
+for i in range(2,n):
+       x.write("adder_16bit add"+str(i)+"({c"+str(i-1)+",sum"+str(i-1)+"[15:1]},p"+str(i)+",1'b0,sum"+str(i)+",c"+str(i)+");\n"+"buf(M["+str(i)+"],sum"+str(i)+"[0]);\n")
 
 x.write("assign out={sum15[0],M[14:0]};\n")
 x.write("endmodule")
